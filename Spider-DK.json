@@ -1,0 +1,3212 @@
+[
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT count(*) FROM singer",
+    "question": "How many singers do we have?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT count(*) FROM singer",
+    "question": "What is the total number of singers?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT name ,  country  FROM singer ORDER BY birthday ASC",
+    "question": "Show name, country for all singers ordered by age from the oldest to the youngest."
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT name ,  country  FROM singer ORDER BY birthday ASC",
+    "question": "What are the names, countries for every singer in descending order of age?"
+  },
+  {
+    "type": 3,
+    "db_id": "new_concert_singer",
+    "query": "SELECT avg(Singer_ID) ,  min(Singer_ID) ,  max(Singer_ID) FROM singer WHERE country  =  'France'",
+    "question": "What is the average, minimum, and maximum id of all French singers?"
+  },
+  {
+    "type": 3,
+    "db_id": "new_concert_singer",
+    "query": "SELECT avg(Singer_ID) ,  min(Singer_ID) ,  max(Singer_ID) FROM singer WHERE country  =  'France'",
+    "question": "What is the average, minimum, and maximum id for French singers?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT song_name ,  song_release_year FROM singer ORDER BY birthday desc LIMIT 1",
+    "question": "Show the name and the release year of the song by the youngest singer."
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT song_name ,  song_release_year FROM singer ORDER BY birthday desc LIMIT 1",
+    "question": "What are the names and release years for all the songs of the youngest singer?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT DISTINCT country FROM singer WHERE birthday  like '2001%'",
+    "question": "What are all distinct countries where singers born in 2001 are from?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT DISTINCT country FROM singer WHERE birthday  like  '2001%'",
+    "question": "What are  the different countries with singers born in 2001?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT country ,  count(*) FROM singer GROUP BY country",
+    "question": "Show all countries and the number of singers in each country."
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT country ,  count(*) FROM singer GROUP BY country",
+    "question": "How many singers are from each country?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT song_name FROM singer WHERE birthday  <  (SELECT avg(birthday) FROM singer)",
+    "question": "List all song names by singers above the average age."
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT song_name FROM singer WHERE birthday  <  (SELECT avg(birthday) FROM singer)",
+    "question": "What are all the song names by singers who are older than average?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT LOCATION ,  name FROM stadium WHERE capacity BETWEEN 5000 AND 10000",
+    "question": "Show location and name for all stadiums with a capacity between 5000 and 10000."
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT LOCATION ,  name FROM stadium WHERE capacity BETWEEN 5000 AND 10000",
+    "question": "What are the locations and names of all stations with capacity between 5000 and 10000?"
+  },
+  {
+    "type": 5,
+    "db_id": "new_concert_singer",
+    "query": "SELECT avg(capacity) ,  max(capacity) FROM stadium",
+    "question": "What is the average and the highest capacity of all stadiums?"
+  },
+  {
+    "type": 5,
+    "db_id": "new_concert_singer",
+    "query": "SELECT avg(capacity) ,  max(capacity) FROM stadium",
+    "question": "What is the average and highest capacities for all stations?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT name ,  capacity FROM stadium ORDER BY average DESC LIMIT 1",
+    "question": "What is the name and capacity for the stadium with highest average attendance?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT name ,  capacity FROM stadium ORDER BY average DESC LIMIT 1",
+    "question": "What is the name and capacity for the stadium with the highest average attendance?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT count(*) FROM concert WHERE YEAR  >=  2014",
+    "question": "How many concerts are there after or in year 2014?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT count(*) FROM concert WHERE YEAR  >=  2014",
+    "question": "How many concerts occurred after or in 2014?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT T2.name ,  count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id GROUP BY T1.stadium_id",
+    "question": "Show the stadium name and the number of concerts in each stadium."
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT T2.name ,  count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id GROUP BY T1.stadium_id",
+    "question": "For each stadium, how many concerts play there?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT T2.name ,  T2.capacity FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  >=  2014 GROUP BY T2.stadium_id ORDER BY count(*) DESC LIMIT 1",
+    "question": "Show the stadium name and capacity with most number of concerts in year 2014 or after."
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT T2.name ,  T2.capacity FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  >=  2014 GROUP BY T2.stadium_id ORDER BY count(*) DESC LIMIT 1",
+    "question": "What is the name and highest attendance of the stadium  with the most concerts after 2013?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT concert_Name FROM concert ORDER BY YEAR asc LIMIT 1",
+    "question": "Which concert is the oldest?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT concert_Name FROM concert ORDER BY YEAR asc LIMIT 1",
+    "question": "Return the oldest concert name?"
+  },
+  {
+    "type": 5,
+    "db_id": "new_concert_singer",
+    "query": "SELECT highest FROM stadium WHERE stadium_id NOT IN (SELECT stadium_id FROM concert)",
+    "question": "Show the highest attendance without any concert."
+  },
+  {
+    "type": 5,
+    "db_id": "new_concert_singer",
+    "query": "SELECT lowest FROM stadium WHERE stadium_id NOT IN (SELECT stadium_id FROM concert)",
+    "question": "What are lowest attendance of the stadiums without any concerts?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT country FROM singer WHERE birthday  like  '1981%' or birthday  like  '1991%'",
+    "question": "Show countries where a singer born in 1981 or 1991 are from."
+  },
+  {
+    "type": 5,
+    "db_id": "new_concert_singer",
+    "query": "SELECT average FROM stadium EXCEPT SELECT T2.average FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  =  2014",
+    "question": "Show average attendance for all stadiums except for stadiums having a concert in year 2014."
+  },
+  {
+    "type": 5,
+    "db_id": "new_concert_singer",
+    "query": "SELECT lowest FROM stadium EXCEPT SELECT T2.lowest FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  =  2014",
+    "question": "What are the lowest attendance of all stadiums that did not have a concert in 2014?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT T2.concert_name ,  T2.theme ,  count(*) FROM singer_in_concert AS T1 JOIN concert AS T2 ON T1.concert_id  =  T2.concert_id GROUP BY T2.concert_id",
+    "question": "Show the name and theme for all concerts and the number of singers in each concert."
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT T2.concert_name ,  T2.theme ,  count(*) FROM singer_in_concert AS T1 JOIN concert AS T2 ON T1.concert_id  =  T2.concert_id GROUP BY T2.concert_id",
+    "question": "What are the names, themes, and number of singers for each and every concert?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT T2.name ,  count(*) FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id GROUP BY T2.singer_id",
+    "question": "List singer names and number of concerts for each singer."
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT T2.name ,  count(*) FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id GROUP BY T2.singer_id",
+    "question": "What are the names of the singers and number of concerts for each person?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT T2.name FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id JOIN concert AS T3 ON T1.concert_id  =  T3.concert_id WHERE T3.year  >=  2014",
+    "question": "List all singer names in concerts after or in year 2014."
+  },
+  {
+    "type": 2,
+    "db_id": "new_concert_singer",
+    "query": "SELECT T2.name FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id JOIN concert AS T3 ON T1.concert_id  =  T3.concert_id WHERE T3.year  <=  2014",
+    "question": "What are the names of the singers who performed in a concert before or in 2014?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT name ,  country FROM singer WHERE song_name LIKE '%Hey%'",
+    "question": "what is the name and nation of the singer who have a song having 'Hey' in its name?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT name ,  country FROM singer WHERE song_name LIKE '%Hey%'",
+    "question": "What is the name and country of origin of every singer who has a song with the word 'Hey' in its title?"
+  },
+  {
+    "type": 5,
+    "db_id": "new_concert_singer",
+    "query": "SELECT T2.lowest ,  T2.highest FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.Year  =  2014 INTERSECT SELECT T2.name ,  T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.Year  =  2015",
+    "question": "Find the lowest and highest attendance of the stadiums which some concerts happened in the years of both 2014 and 2015."
+  },
+  {
+    "type": 5,
+    "db_id": "new_concert_singer",
+    "query": "SELECT T2.lowest ,  T2.highest FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.Year  =  2014 INTERSECT SELECT T2.name ,  T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.Year  =  2015",
+    "question": "What are the lowest and highest attendance of the stadiums that had concerts that occurred in both 2014 and 2015?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id ORDER BY T2.Capacity DESC LIMIT 1",
+    "question": "Find the number of concerts happened in the stadium with the highest capacity."
+  },
+  {
+    "type": 0,
+    "db_id": "new_concert_singer",
+    "query": "SELECT count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id ORDER BY T2.Capacity DESC LIMIT 1",
+    "question": "What are the number of concerts that occurred in the stadium with the largest capacity?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT count(*) FROM pets WHERE weight  >  10",
+    "question": "Find the number of pets whose weight is heavier than 10."
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT count(*) FROM pets WHERE weight  >  10",
+    "question": "How many pets have a greater weight than 10?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_pets_1",
+    "query": "SELECT weight FROM pets ORDER BY birthdate desc LIMIT 1",
+    "question": "Find the weight of the youngest dog."
+  },
+  {
+    "type": 2,
+    "db_id": "new_pets_1",
+    "query": "SELECT weight FROM pets ORDER BY birthdate desc LIMIT 1",
+    "question": "How much does the youngest dog weigh?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT max(weight) ,  petType FROM pets GROUP BY petType",
+    "question": "Find the maximum weight for each type of pet. List the maximum weight and pet type."
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT max(weight) ,  petType FROM pets GROUP BY petType",
+    "question": "List the maximum weight and type for each type of pet."
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.age  >  20",
+    "question": "Find number of pets owned by students who are older than 20."
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.age  >  20",
+    "question": "How many pets are owned by students that have an age greater than 20?"
+  },
+  {
+    "type": 34,
+    "db_id": "new_pets_1",
+    "query": "SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T2.petid  =  T3.petid WHERE T1.sex  =  'F' AND T3.pettype  =  'dog'",
+    "question": "Find the number of puppy pets that are raised by female students (with sex F)."
+  },
+  {
+    "type": 34,
+    "db_id": "new_pets_1",
+    "query": "SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T2.petid  =  T3.petid WHERE T1.sex  =  'F' AND T3.pettype  =  'dog'",
+    "question": "How many puppy pets are raised by female students?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT count(DISTINCT pettype) FROM pets",
+    "question": "Find the number of distinct type of pets."
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT count(DISTINCT pettype) FROM pets",
+    "question": "How many different types of pet are there?"
+  },
+  {
+    "type": 3,
+    "db_id": "new_pets_1",
+    "query": "SELECT DISTINCT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' OR T3.pettype  =  'dog'",
+    "question": "Find the first name of students who have kitten or puppy pet."
+  },
+  {
+    "type": 3,
+    "db_id": "new_pets_1",
+    "query": "SELECT DISTINCT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' OR T3.pettype  =  'dog'",
+    "question": "What are the first names of every student who has a kitten or puppy as a pet?"
+  },
+  {
+    "type": 3,
+    "db_id": "new_pets_1",
+    "query": "SELECT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' INTERSECT SELECT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog'",
+    "question": "Find the name of students who have both Kitten and puppy pets."
+  },
+  {
+    "type": 3,
+    "db_id": "new_pets_1",
+    "query": "SELECT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat' INTERSECT SELECT T1.Fname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog'",
+    "question": "What are the students' first names who have both kitten and puppy as pets?"
+  },
+  {
+    "type": 3,
+    "db_id": "new_pets_1",
+    "query": "SELECT major ,  age FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+    "question": "Find the major and age of students who do not have a kitten pet."
+  },
+  {
+    "type": 3,
+    "db_id": "new_pets_1",
+    "query": "SELECT major ,  age FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+    "question": "What major is every student who does not own a kitten as a pet, and also how old are they?"
+  },
+  {
+    "type": 3,
+    "db_id": "new_pets_1",
+    "query": "SELECT stuid FROM student EXCEPT SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat'",
+    "question": "Find the id of students who do not have a kitten pet."
+  },
+  {
+    "type": 3,
+    "db_id": "new_pets_1",
+    "query": "SELECT stuid FROM student EXCEPT SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat'",
+    "question": "What are the ids of the students who do not own kittens as pets?"
+  },
+  {
+    "type": 3,
+    "db_id": "new_pets_1",
+    "query": "SELECT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog' AND T1.stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+    "question": "Find the first name and age of students who have a dog but do not have a puppy as a pet."
+  },
+  {
+    "type": 3,
+    "db_id": "new_pets_1",
+    "query": "SELECT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog' AND T1.stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+    "question": "What is the first name of every student who has a puppy but does not have a kitten?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_pets_1",
+    "query": "SELECT pettype ,  weight FROM pets ORDER BY birthdate desc LIMIT 1",
+    "question": "Find the type and weight of the youngest pet."
+  },
+  {
+    "type": 2,
+    "db_id": "new_pets_1",
+    "query": "SELECT pettype ,  weight FROM pets ORDER BY birthdate desc LIMIT 1",
+    "question": "What type of pet is the youngest animal, and how much does it weigh?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_pets_1",
+    "query": "SELECT petid ,  weight FROM pets WHERE birthdate  <  '2020-01-01'",
+    "question": "Find the id and weight of all pets older than that born in 2020."
+  },
+  {
+    "type": 2,
+    "db_id": "new_pets_1",
+    "query": "SELECT petid ,  weight FROM pets WHERE birthdate  <  '2020-05-01'",
+    "question": "What is the id and weight of every pet who is older than that born in 2020?"
+  },
+  {
+    "type": 5,
+    "db_id": "new_pets_1",
+    "query": "SELECT avg(PetID) ,  max(PetID) ,  pettype FROM pets GROUP BY pettype",
+    "question": "Find the average and maximum id for each type of pet."
+  },
+  {
+    "type": 5,
+    "db_id": "new_pets_1",
+    "query": "SELECT avg(PetID) ,  max(PetID) ,  pettype FROM pets GROUP BY pettype",
+    "question": "What is the average and maximum id for each pet type?"
+  },
+  {
+    "type": 5,
+    "db_id": "new_pets_1",
+    "query": "SELECT avg(PetID) ,  max(PetID) ,  pettype FROM pets GROUP BY pettype",
+    "question": "Find the average and maximum id for each pet type."
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT avg(weight) ,  pettype FROM pets GROUP BY pettype",
+    "question": "What is the average weight for each type of pet?"
+  },
+  {
+    "type": 1,
+    "db_id": "new_pets_1",
+    "query": "SELECT DISTINCT T1.fname , T1.LName ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid",
+    "question": "Find the name and age of students who have a pet."
+  },
+  {
+    "type": 1,
+    "db_id": "new_pets_1",
+    "query": "SELECT DISTINCT T1.fname , T1.LName  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid",
+    "question": "What are the different names and ages of the students who do have pets?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT T2.petid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.Lname  =  'Smith'",
+    "question": "Find the id of the pet owned by student whose last name is \u2018Smith\u2019."
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT T2.petid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.Lname  =  'Smith'",
+    "question": "What is the id of the pet owned by the student whose last name is 'Smith'?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT count(*) ,  T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid GROUP BY T1.stuid",
+    "question": "Find the number of pets for each student who has any pet and student id."
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT count(*) ,  T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid GROUP BY T1.stuid",
+    "question": "For students who have pets, how many pets does each student have?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT T1.fname ,  T1.sex FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid GROUP BY T1.stuid HAVING count(*)  >  1",
+    "question": "Find the first name and gender of student who have more than one pet."
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT T1.fname ,  T1.sex FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid GROUP BY T1.stuid HAVING count(*)  >  1",
+    "question": "What is the first name and gender of the all the students who have more than one pet?"
+  },
+  {
+    "type": 23,
+    "db_id": "new_pets_1",
+    "query": "SELECT T1.lname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.birthdate  like  '2001%' AND T3.pettype  =  'cat'",
+    "question": "Find the last name of the student who has a cat that born in 2001."
+  },
+  {
+    "type": 23,
+    "db_id": "new_pets_1",
+    "query": "SELECT T1.lname FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.birthdate  like '2001%' AND T3.pettype  =  'cat'",
+    "question": "What is the last name of the student who has a cat that born in 2001?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT avg(age) FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid)",
+    "question": "Find the average age of students who do not have any pet."
+  },
+  {
+    "type": 0,
+    "db_id": "new_pets_1",
+    "query": "SELECT avg(age) FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid)",
+    "question": "What is the average age for all students who do not own any pets?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM CONTINENTS;",
+    "question": "How many continents are there?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM CONTINENTS;",
+    "question": "What is the number of continents?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.ContId ,  T1.Continent ,  count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId  =  T2.Continent GROUP BY T1.ContId;",
+    "question": "How many countries does each continent have? List the continent id, continent name and the number of countries."
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.ContId ,  T1.Continent ,  count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId  =  T2.Continent GROUP BY T1.ContId;",
+    "question": "For each continent, list its id, name, and how many countries it has?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM COUNTRIES;",
+    "question": "How many countries are listed?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM COUNTRIES;",
+    "question": "How many countries exist?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.FullName ,  T1.Id ,  count(*) FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id;",
+    "question": "How many models does each car maker produce? List maker full name, id and the number."
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.FullName ,  T1.Id ,  count(*) FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id;",
+    "question": "What is the full name of each car maker, along with its id and how many models it produces?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.horsepower ASC LIMIT 1;",
+    "question": "Which model of the car has the minimum horsepower?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.horsepower ASC LIMIT 1;",
+    "question": "What is the model of the car with the smallest amount of horsepower?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Weight  <  (SELECT avg(Weight) FROM CARS_DATA)",
+    "question": "Find the model of the car whose weight is below the average weight."
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Weight  <  (SELECT avg(Weight) FROM CARS_DATA)",
+    "question": "What is the model for the car with a weight smaller than the average?"
+  },
+  {
+    "type": 2,
+    "db_id": "car_1",
+    "query": "SELECT DISTINCT T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker JOIN CAR_NAMES AS T3 ON T2.model  =  T3.model JOIN CARS_DATA AS T4 ON T3.MakeId  =  T4.id WHERE T4.year  >=  '2019';",
+    "question": "Find the name of the makers that produced some cars in the past two years?"
+  },
+  {
+    "type": 2,
+    "db_id": "car_1",
+    "query": "SELECT DISTINCT T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker JOIN CAR_NAMES AS T3 ON T2.model  =  T3.model JOIN CARS_DATA AS T4 ON T3.MakeId  =  T4.id WHERE T4.year  >=  '2019';",
+    "question": "What is the name of the different car makers who produced a car in the past two years?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T2.Make ,  T1.Year FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Year  =  (SELECT min(YEAR) FROM CARS_DATA);",
+    "question": "Find the make and production time of the cars that were produced in the earliest year?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T2.Make ,  T1.Year FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Year  =  (SELECT min(YEAR) FROM CARS_DATA);",
+    "question": "What is the maker of the carr produced in the earliest year and what year was it?"
+  },
+  {
+    "type": 2,
+    "db_id": "car_1",
+    "query": "SELECT DISTINCT T1.model FROM MODEL_LIST AS T1 JOIN CAR_NAMES AS T2 ON T1.model  =  T2.model JOIN CARS_DATA AS T3 ON T2.MakeId  =  T3.id WHERE T3.year  <=  1980;",
+    "question": "Which distinct car models are the produced before or in 1980?"
+  },
+  {
+    "type": 2,
+    "db_id": "car_1",
+    "query": "SELECT DISTINCT T1.model FROM MODEL_LIST AS T1 JOIN CAR_NAMES AS T2 ON T1.model  =  T2.model JOIN CARS_DATA AS T3 ON T2.MakeId  =  T3.id WHERE T3.year  <=  1980;",
+    "question": "What are the different models for the cards produced before or in 1980?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.Continent ,  count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId  =  T2.continent JOIN car_makers AS T3 ON T2.CountryId  =  T3.Country GROUP BY T1.Continent;",
+    "question": "How many car makers are there in each continents? List the continent name and the count."
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.Continent ,  count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId  =  T2.continent JOIN car_makers AS T3 ON T2.CountryId  =  T3.Country GROUP BY T1.Continent;",
+    "question": "What is the name of each continent and how many car makers are there in each one?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T2.CountryName FROM CAR_MAKERS AS T1 JOIN COUNTRIES AS T2 ON T1.Country  =  T2.CountryId GROUP BY T1.Country ORDER BY Count(*) DESC LIMIT 1;",
+    "question": "Which of the countries has the most car makers? List the country name."
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T2.CountryName FROM CAR_MAKERS AS T1 JOIN COUNTRIES AS T2 ON T1.Country  =  T2.CountryId GROUP BY T1.Country ORDER BY Count(*) DESC LIMIT 1;",
+    "question": "What is the name of the country with the most car makers?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT Count(*) ,  T2.FullName ,  T2.id FROM MODEL_LIST AS T1 JOIN CAR_MAKERS AS T2 ON T1.Maker  =  T2.Id GROUP BY T2.id;",
+    "question": "How many car models are produced by each maker? List the count and the maker full name."
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT Count(*) ,  T2.FullName ,  T2.id FROM MODEL_LIST AS T1 JOIN CAR_MAKERS AS T2 ON T1.Maker  =  T2.Id GROUP BY T2.id;",
+    "question": "What is the number of car models that are produced by each maker and what is the id and full name of each maker?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.Accelerate FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T2.Make  =  'amc hornet sportabout (sw)';",
+    "question": "What is the accelerate of the car make amc hornet sportabout (sw)?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.Accelerate FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T2.Make  =  'amc hornet sportabout (sw)';",
+    "question": "How much does the car accelerate that makes amc hornet sportabout (sw)?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM CAR_MAKERS AS T1 JOIN COUNTRIES AS T2 ON T1.Country  =  T2.CountryId WHERE T2.CountryName  =  'Japan';",
+    "question": "How many Japanese car makers are there?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM CAR_MAKERS AS T1 JOIN COUNTRIES AS T2 ON T1.Country  =  T2.CountryId WHERE T2.CountryName  =  'Japan';",
+    "question": "What is the number of makers of Japanese care?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM MODEL_LIST AS T1 JOIN CAR_MAKERS AS T2 ON T1.Maker  =  T2.Id JOIN COUNTRIES AS T3 ON T2.Country  =  T3.CountryId WHERE T3.CountryName  =  'usa';",
+    "question": "How many car models are produced in the america?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM MODEL_LIST AS T1 JOIN CAR_MAKERS AS T2 ON T1.Maker  =  T2.Id JOIN COUNTRIES AS T3 ON T2.Country  =  T3.CountryId WHERE T3.CountryName  =  'usa';",
+    "question": "What is the count of the car models produced in the United States?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT avg(mpg) FROM CARS_DATA WHERE Cylinders  =  4;",
+    "question": "What is the average miles per gallon(mpg) of the cars with 4 cylinders?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT avg(mpg) FROM CARS_DATA WHERE Cylinders  =  4;",
+    "question": "What is the average miles per gallon of all the cards with 4 cylinders?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT Weight FROM CARS_DATA WHERE Cylinders  =  4 AND YEAR  =  1974 ORDER BY Weight ASC LIMIT 1;",
+    "question": "What is the smallest weight of the car produced with 8 cylinders on 1974?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT Weight FROM CARS_DATA WHERE Cylinders  =  4 AND YEAR  =  1974 ORDER BY Weight ASC LIMIT 1;",
+    "question": "What is the minimu weight of the car with 8 cylinders produced in 1974?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT Maker ,  Model FROM MODEL_LIST;",
+    "question": "What are all the makers and models?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT Maker ,  Model FROM MODEL_LIST;",
+    "question": "What are the makers and models?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.CountryName ,  T1.CountryId FROM COUNTRIES AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.CountryId HAVING count(*)  >=  1;",
+    "question": "What are the countries having at least one car maker? List name and id."
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.CountryName ,  T1.CountryId FROM COUNTRIES AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.CountryId HAVING count(*)  >=  1;",
+    "question": "What are the names and ids of all countries with at least one car maker?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM CARS_DATA WHERE horsepower  >  150;",
+    "question": "What is the number of the cars with horsepower more than 150?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM CARS_DATA WHERE horsepower  >  150;",
+    "question": "What is the number of cars with a horsepower greater than 150?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT avg(Weight) ,  YEAR FROM CARS_DATA GROUP BY YEAR;",
+    "question": "What is the average weight of cars each year?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT avg(Weight) ,  YEAR FROM CARS_DATA GROUP BY YEAR;",
+    "question": "What is the average weight and year for each year?"
+  },
+  {
+    "type": 2,
+    "db_id": "car_1",
+    "query": "SELECT T1.CountryName FROM COUNTRIES AS T1 JOIN CONTINENTS AS T2 ON T1.Continent  =  T2.ContId JOIN CAR_MAKERS AS T3 ON T1.CountryId  =  T3.Country WHERE T2.Continent  =  'europe' GROUP BY T1.CountryName HAVING count(*)  >=  3;",
+    "question": "Which European countries have at least 3 car manufacturers?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.CountryName FROM COUNTRIES AS T1 JOIN CONTINENTS AS T2 ON T1.Continent  =  T2.ContId JOIN CAR_MAKERS AS T3 ON T1.CountryId  =  T3.Country WHERE T2.Continent  =  'europe' GROUP BY T1.CountryName HAVING count(*)  >=  3;",
+    "question": "What are the names of all European countries with at least 3 manufacturers?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T2.horsepower ,  T1.Make FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.cylinders  =  3 ORDER BY T2.horsepower DESC LIMIT 1;",
+    "question": "What is the maximum horsepower and the make of the car models with 3 cylinders?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T2.horsepower ,  T1.Make FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.cylinders  =  3 ORDER BY T2.horsepower DESC LIMIT 1;",
+    "question": "What is the largest amount of horsepower for the models with 3 cylinders and what make is it?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.mpg DESC LIMIT 1;",
+    "question": "Which model saves the most gasoline? That is to say, have the maximum miles per gallon."
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.mpg DESC LIMIT 1;",
+    "question": "What is the car wmodel with the highest mpg?"
+  },
+  {
+    "type": 2,
+    "db_id": "car_1",
+    "query": "SELECT avg(horsepower) FROM CARS_DATA WHERE YEAR  <=  1980;",
+    "question": "What is the average horsepower of the cars before or in 1980?"
+  },
+  {
+    "type": 2,
+    "db_id": "car_1",
+    "query": "SELECT avg(horsepower) FROM CARS_DATA WHERE YEAR  <=  1980;",
+    "question": "What is the average horsepower for all cards produced before or in 1980?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT avg(T2.edispl) FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T1.Model  =  'tesla';",
+    "question": "What is the average edispl of the cars of model tesla?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT avg(T2.edispl) FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T1.Model  =  'tesla';",
+    "question": "What is the average edispl for all teslas?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT max(Accelerate) ,  Cylinders FROM CARS_DATA GROUP BY Cylinders;",
+    "question": "What is the maximum accelerate for different number of cylinders?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT max(Accelerate) ,  Cylinders FROM CARS_DATA GROUP BY Cylinders;",
+    "question": "What is the maximum accelerate for all the different cylinders?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT Model FROM CAR_NAMES GROUP BY Model ORDER BY count(*) DESC LIMIT 1;",
+    "question": "Which model has the most version(make) of cars?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT Model FROM CAR_NAMES GROUP BY Model ORDER BY count(*) DESC LIMIT 1;",
+    "question": "What model has the most different versions?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM CARS_DATA WHERE Cylinders  >  4;",
+    "question": "How many cars have more than 4 cylinders?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM CARS_DATA WHERE Cylinders  >  4;",
+    "question": "What is the number of cars with more than 4 cylinders?"
+  },
+  {
+    "type": 2,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM CARS_DATA WHERE YEAR  >=  2019;",
+    "question": "how many cars were produced in the last two years?"
+  },
+  {
+    "type": 2,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM CARS_DATA WHERE YEAR  >=  2019;",
+    "question": "In the last two years, how many cars were made?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker WHERE T1.FullName  =  'American Motor Company';",
+    "question": "How many car models were produced by American Motor?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT count(*) FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker WHERE T1.FullName  =  'American Motor Company';",
+    "question": "What is the number of car models created by American Motor?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.FullName ,  T1.Id FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id HAVING count(*)  >  3;",
+    "question": "Which makers designed more than 3 car models? List full name and the id."
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.FullName ,  T1.Id FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id HAVING count(*)  >  3;",
+    "question": "What are the names and ids of all makers with more than 3 models?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT DISTINCT T2.Model FROM CAR_NAMES AS T1 JOIN MODEL_LIST AS T2 ON T1.Model  =  T2.Model JOIN CAR_MAKERS AS T3 ON T2.Maker  =  T3.Id JOIN CARS_DATA AS T4 ON T1.MakeId  =  T4.Id WHERE T3.FullName  =  'General Motors' OR T4.weight  >  3500;",
+    "question": "Which distinctive models are produced by maker with the full name General Motors or weighing more than 3500?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT DISTINCT T2.Model FROM CAR_NAMES AS T1 JOIN MODEL_LIST AS T2 ON T1.Model  =  T2.Model JOIN CAR_MAKERS AS T3 ON T2.Maker  =  T3.Id JOIN CARS_DATA AS T4 ON T1.MakeId  =  T4.Id WHERE T3.FullName  =  'General Motors' OR T4.weight  >  3500;",
+    "question": "What are the different models created by either the car maker General Motors or weighed more than 3500?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT DISTINCT T1.Year FROM CARS_DATA AS T1 WHERE T1.Weight  >  3000 AND T1.weight  <  4000;",
+    "question": "In which years cars were produced weighing no less than 3000 and no more than 4000?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT DISTINCT T1.Year FROM CARS_DATA AS T1 WHERE T1.Weight  >  3000 AND T1.weight  <  4000;",
+    "question": "What are the different years in which there were cars produced that weighed less than 4000 and also cars that weighted more than 3000?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.horsepower FROM CARS_DATA AS T1 ORDER BY T1.accelerate DESC LIMIT 1;",
+    "question": "What is the horsepower of the car with the largest accelerate?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.horsepower FROM CARS_DATA AS T1 ORDER BY T1.accelerate DESC LIMIT 1;",
+    "question": "What is the horsepower of the car with the greatest accelerate?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT T1.cylinders FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T2.Model  =  'tesla' ORDER BY T1.accelerate ASC LIMIT 1;",
+    "question": "For model tesla, how many cylinders does the car with the least accelerate have?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT T1.cylinders FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T2.Model  =  'tesla' ORDER BY T1.accelerate ASC LIMIT 1;",
+    "question": "For a tesla model, how many cylinders does the version with least accelerate have?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT COUNT(*) FROM CARS_DATA WHERE Accelerate  >  ( SELECT Accelerate FROM CARS_DATA ORDER BY Horsepower DESC LIMIT 1 );",
+    "question": "How many cars have a larger accelerate than the car with the largest horsepower?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT COUNT(*) FROM CARS_DATA WHERE Accelerate  >  ( SELECT Accelerate FROM CARS_DATA ORDER BY Horsepower DESC LIMIT 1 );",
+    "question": "What is the number of cars with a greater accelerate than the one with the most horsepower?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT COUNT(*) FROM ( SELECT T1.CountryId ,  COUNT(*) FROM COUNTRIES AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.CountryId HAVING count(*)  >  2 );",
+    "question": "How many countries has more than 2 car makers?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT COUNT(*) FROM ( SELECT T1.CountryId ,  COUNT(*) FROM COUNTRIES AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.CountryId HAVING count(*)  >  2 );",
+    "question": "What is the number of countries with more than 2 car makers?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT COUNT(*) FROM CARS_DATA WHERE Cylinders  >  6;",
+    "question": "How many cars has over 6 cylinders?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT COUNT(*) FROM CARS_DATA WHERE Cylinders  >  6;",
+    "question": "What is the number of carsw ith over 6 cylinders?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Cylinders  =  4 ORDER BY T2.horsepower DESC LIMIT 1;",
+    "question": "For the cars with 4 cylinders, which model has the largest horsepower?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Cylinders  =  4 ORDER BY T2.horsepower DESC LIMIT 1;",
+    "question": "For all of the 4 cylinder cars, which model has the most horsepower?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T2.MakeId ,  T2.Make FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Horsepower  >  (SELECT min(Horsepower) FROM CARS_DATA) AND T1.Cylinders  <=  3;",
+    "question": "Among the cars with more than lowest horsepower, which ones do not have more than 3 cylinders? List the car makeid and make name."
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T2.MakeId ,  T2.Make FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Horsepower  >  (SELECT min(Horsepower) FROM CARS_DATA) AND T1.Cylinders  <=  3;",
+    "question": "Among the cars that do not have the minimum horsepower, what are the make ids and names of al those with less than 4 cylinders?"
+  },
+  {
+    "type": 2,
+    "db_id": "car_1",
+    "query": "SELECT mpg FROM CARS_DATA WHERE Cylinders  =  8 OR YEAR  <=  1980 ORDER BY mpg DESC LIMIT 1;",
+    "question": "What is the maximum miles per gallon of the car with 8 cylinders or produced before or in 1980?"
+  },
+  {
+    "type": 2,
+    "db_id": "car_1",
+    "query": "SELECT mpg FROM CARS_DATA WHERE Cylinders  =  8 OR YEAR  <=  1980 ORDER BY mpg DESC LIMIT 1;",
+    "question": "What is the maximum mpg of the cars that had 8 cylinders or that were produced before or in 1980?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT DISTINCT T1.model FROM MODEL_LIST AS T1 JOIN CAR_NAMES AS T2 ON T1.Model  =  T2.Model JOIN CARS_DATA AS T3 ON T2.MakeId  =  T3.Id JOIN CAR_MAKERS AS T4 ON T1.Maker  =  T4.Id WHERE T3.weight  <  3500 AND T4.FullName != 'Ford Motor Company';",
+    "question": "Which models are lighter than 3500 but not built by the 'Ford Motor'?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT DISTINCT T1.model FROM MODEL_LIST AS T1 JOIN CAR_NAMES AS T2 ON T1.Model  =  T2.Model JOIN CARS_DATA AS T3 ON T2.MakeId  =  T3.Id JOIN CAR_MAKERS AS T4 ON T1.Maker  =  T4.Id WHERE T3.weight  <  3500 AND T4.FullName != 'Ford Motor Company';",
+    "question": "What are the different models wthat are lighter than 3500 but were not built by the Ford Motor?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT CountryName FROM countries EXCEPT SELECT T1.CountryName FROM countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.countryId  =  T2.Country;",
+    "question": "What are the name of the countries where there is not a single car maker?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT CountryName FROM countries EXCEPT SELECT T1.CountryName FROM countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.countryId  =  T2.Country;",
+    "question": "What are the names of the countries with no car makers?"
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.Id ,  T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id HAVING count(*)  >=  2 INTERSECT SELECT T1.Id ,  T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker JOIN CAR_NAMES AS T3 ON T2.model  =  T3.model GROUP BY T1.Id HAVING count(*)  >  3;",
+    "question": "Which are the car makers which produce at least 2 models and more than 3 car makes? List the id and the maker."
+  },
+  {
+    "type": 0,
+    "db_id": "car_1",
+    "query": "SELECT T1.Id ,  T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id HAVING count(*)  >=  2 INTERSECT SELECT T1.Id ,  T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker JOIN CAR_NAMES AS T3 ON T2.model  =  T3.model GROUP BY T1.Id HAVING count(*)  >  3;",
+    "question": "What are the ids and makers of all car makers that produce at least 2 models and make more than 3 cars?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT T1.countryId ,  T1.CountryName FROM Countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.countryId HAVING count(*)  >  3 UNION SELECT T1.countryId ,  T1.CountryName FROM Countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country JOIN MODEL_LIST AS T3 ON T2.Id  =  T3.Maker WHERE T3.Model  =  'tesla';",
+    "question": "What are the id and names of the countries which have more than 3 car makers or produce the 'tesla' model?"
+  },
+  {
+    "type": 3,
+    "db_id": "car_1",
+    "query": "SELECT T1.countryId ,  T1.CountryName FROM Countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.countryId HAVING count(*)  >  3 UNION SELECT T1.countryId ,  T1.CountryName FROM Countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country JOIN MODEL_LIST AS T3 ON T2.Id  =  T3.Maker WHERE T3.Model  =  'tesla';",
+    "question": "What are the ids and names of all countries that either have more than 3 car makers or produce teslas?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT Country FROM AIRLINES WHERE Airline  =  \"JetBlue Airways\"",
+    "question": "Which country does Airline \"JetBlue\" belong to?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT Country FROM AIRLINES WHERE Airline  =  \"JetBlue Airways\"",
+    "question": "What country is Jetblue affiliated with?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT Abbreviation FROM AIRLINES WHERE Airline  =  \"JetBlue Airways\"",
+    "question": "What is the abbreviation of Airline \"JetBlue\"?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT Abbreviation FROM AIRLINES WHERE Airline  =  \"JetBlue Airways\"",
+    "question": "Which abbreviation corresponds to JetBlue?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT Airline ,  Abbreviation FROM AIRLINES WHERE Country  =  \"USA\"",
+    "question": "List all american airline names and their abbreviations."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT Airline ,  Abbreviation FROM AIRLINES WHERE Country  =  \"USA\"",
+    "question": "What are american airline names and abbreviations for airlines?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT AirportCode ,  AirportName FROM AIRPORTS WHERE city  =  \"Jackson\"",
+    "question": "List the airport code and name in Jackson."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT AirportCode ,  AirportName FROM AIRPORTS WHERE city  =  \"Syracuse\"",
+    "question": "Give the airport code and airport name corresonding to the Syracuse."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM AIRLINES",
+    "question": "How many airlines do we have?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM AIRLINES",
+    "question": "What is the total number of airlines?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM AIRPORTS",
+    "question": "How many airports do we have?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM AIRPORTS",
+    "question": "Return the number of  airports."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS",
+    "question": "How many flights do we have?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS",
+    "question": "Return the number of flights."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT Airline FROM AIRLINES WHERE Abbreviation  =  \"UAL\"",
+    "question": "Which airline has abbreviation 'UAL'?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT Airline FROM AIRLINES WHERE Abbreviation  =  \"UAL\"",
+    "question": "Give the airline with abbreviation 'UAL'."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM AIRLINES WHERE Country  =  \"USA\"",
+    "question": "How many airlines are from America?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM AIRLINES WHERE Country  =  \"USA\"",
+    "question": "Return the number of airlines in the America."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT City ,  Country FROM AIRPORTS WHERE AirportName  =  \"Alton\"",
+    "question": "Which city and country is the Alton airport at?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT City ,  Country FROM AIRPORTS WHERE AirportName  =  \"Alton\"",
+    "question": "Give the city and country for the Alton airport."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT AirportName FROM AIRPORTS WHERE AirportCode  =  \"AKO\"",
+    "question": "What is the airport name for airport 'AKO'?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT AirportName FROM AIRPORTS WHERE AirportCode  =  \"AKO\"",
+    "question": "Return the name of the airport with code 'AKO'."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT AirportName FROM AIRPORTS WHERE City = \"Jackson\"",
+    "question": "What are airport names at 'Jackson'?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT AirportName FROM AIRPORTS WHERE City = \"Jackson\"",
+    "question": "What are the names of airports in Jackson?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS WHERE SourceAirport  =  \"APG\"",
+    "question": "How many flights depart from 'APG'?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS WHERE SourceAirport  =  \"APG\"",
+    "question": "Count the number of flights departing from 'APG'."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS WHERE DestAirport  =  \"ATO\"",
+    "question": "How many flights have destination ATO?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS WHERE DestAirport  =  \"ATO\"",
+    "question": "Count the number of flights into ATO."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.SourceAirport  =  T2.AirportCode WHERE T2.City  =  \"Jackson\"",
+    "question": "How many flights depart from Jackson?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.SourceAirport  =  T2.AirportCode WHERE T2.City  =  \"Jackson\"",
+    "question": "Return the number of flights departing from Jackson."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport  =  T2.AirportCode WHERE T2.City  =  \"Jackson\"",
+    "question": "How many flights arriving in Jackson city?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport  =  T2.AirportCode WHERE T2.City  =  \"Jackson\"",
+    "question": "Return the number of flights arriving in Jackson."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport  =  T2.AirportCode JOIN AIRPORTS AS T3 ON T1.SourceAirport  =  T3.AirportCode WHERE T2.City  =  \"Ashley\" AND T3.City  =  \"Syracuse\"",
+    "question": "How many flights depart from City 'Syracuse' and have destination City 'Ashley'?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport  =  T2.AirportCode JOIN AIRPORTS AS T3 ON T1.SourceAirport  =  T3.AirportCode WHERE T2.City  =  \"Ashley\" AND T3.City  =  \"Syracuse\"",
+    "question": "How many flights fly from Syracuse to Ashley?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRLINES AS T2 ON T1.Airline  =  T2.uid WHERE T2.Airline = \"JetBlue Airways\"",
+    "question": "How many flights does airline 'JetBlue' have?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRLINES AS T2 ON T1.Airline  =  T2.uid WHERE T2.Airline = \"JetBlue Airways\"",
+    "question": "Give the number of Jetblue flights."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T2.Airline  =  T1.uid WHERE T1.Airline  =  \"JetBlue Airways\" AND T2.DestAirport  =  \"ASY\"",
+    "question": "How many 'JetBlue' flights go to Airport 'ASY'?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T2.Airline  =  T1.uid WHERE T1.Airline  =  \"JetBlue Airways\" AND T2.DestAirport  =  \"ASY\"",
+    "question": "Count the number of JetBlue flights arriving in ASY Airport."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T2.Airline  =  T1.uid WHERE T1.Airline  =  \"JetBlue Airways\" AND T2.SourceAirport  =  \"AHD\"",
+    "question": "How many 'JetBlue' flights depart from Airport 'AHD'?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T2.Airline  =  T1.uid WHERE T1.Airline  =  \"JetBlue Airways\" AND T2.SourceAirport  =  \"AHD\"",
+    "question": "Return the number of JetBlue flights leaving from AHD Airport."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport  =  T2.AirportCode JOIN AIRLINES AS T3 ON T3.uid  =  T1.Airline WHERE T2.City  =  \"Aberdeen\" AND T3.Airline  =  \"JetBlue Airways\"",
+    "question": "How many JetBlue flights go to City 'Aberdeen'?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport  =  T2.AirportCode JOIN AIRLINES AS T3 ON T3.uid  =  T1.Airline WHERE T2.City  =  \"Aberdeen\" AND T3.Airline  =  \"JetBlue Airways\"",
+    "question": "Count the number of JetBlue flights that arrive in Aberdeen."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.City FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport GROUP BY T1.City ORDER BY count(*) DESC LIMIT 1",
+    "question": "Which city has most number of arriving flights?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.City FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport GROUP BY T1.City ORDER BY count(*) DESC LIMIT 1",
+    "question": "Which city has the most frequent destination airport?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.City FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.SourceAirport GROUP BY T1.City ORDER BY count(*) DESC LIMIT 1",
+    "question": "Which city has most number of departing flights?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.City FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.SourceAirport GROUP BY T1.City ORDER BY count(*) DESC LIMIT 1",
+    "question": "Which city is the most frequent source airport?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.AirportCode FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport OR T1.AirportCode  =  T2.SourceAirport GROUP BY T1.AirportCode ORDER BY count(*) DESC LIMIT 1",
+    "question": "What is the code of airport that has the highest number of flights?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.AirportCode FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport OR T1.AirportCode  =  T2.SourceAirport GROUP BY T1.AirportCode ORDER BY count(*) DESC LIMIT 1",
+    "question": "What is the airport code of the airport with the most flights?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.AirportCode FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport OR T1.AirportCode  =  T2.SourceAirport GROUP BY T1.AirportCode ORDER BY count(*) LIMIT 1",
+    "question": "What is the code of airport that has fewest number of flights?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.AirportCode FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport OR T1.AirportCode  =  T2.SourceAirport GROUP BY T1.AirportCode ORDER BY count(*) LIMIT 1",
+    "question": "Give the code of the airport with the least flights."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) DESC LIMIT 1",
+    "question": "Which airline has most number of flights?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) DESC LIMIT 1",
+    "question": "What airline serves the most flights?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Abbreviation ,  T1.Country FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) LIMIT 1",
+    "question": "Find the abbreviation and country of the airline that has fewest number of flights?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Abbreviation ,  T1.Country FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) LIMIT 1",
+    "question": "What is the abbreviation of the airilne has the fewest flights and what country is it in?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"AHD\"",
+    "question": "What are airlines that have some flight departing from airport 'AHD'?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"AHD\"",
+    "question": "Which airlines have a flight with source airport AHD?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.DestAirport  =  \"AHD\"",
+    "question": "What are airlines that have flights arriving at airport 'AHD'?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.DestAirport  =  \"AHD\"",
+    "question": "Which airlines have a flight with destination airport AHD?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"APG\" INTERSECT SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"CVO\"",
+    "question": "Find all airlines that have flights from both airports 'APG' and 'CVO'."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"APG\" INTERSECT SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"CVO\"",
+    "question": "Which airlines have departing flights from both APG and CVO airports?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"CVO\" EXCEPT SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"APG\"",
+    "question": "Find all airlines that have flights from airport 'CVO' but not from 'APG'."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"CVO\" EXCEPT SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.SourceAirport  =  \"APG\"",
+    "question": "Which airlines have departures from CVO but not from APG airports?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline HAVING count(*)  >  10",
+    "question": "Find all airlines that have at least 10 flights."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline HAVING count(*)  >  10",
+    "question": "Which airlines have at least 10 flights?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline HAVING count(*)  <  200",
+    "question": "Find all airlines that have fewer than 200 flights."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline HAVING count(*)  <  200",
+    "question": "Which airlines have less than 200 flights?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRLINES AS T2 ON T2.uid  =  T1.Airline WHERE T2.Airline  =  \"JetBlue Airways\"",
+    "question": "What are flight numbers belonging to \"JetBlue\"?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRLINES AS T2 ON T2.uid  =  T1.Airline WHERE T2.Airline  =  \"JetBlue Airways\"",
+    "question": "Which flight numbers correspond to JetBlue flights?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT FlightNo FROM FLIGHTS WHERE SourceAirport  =  \"APG\"",
+    "question": "What are flight numbers of flights departing from Airport \"APG\"?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT FlightNo FROM FLIGHTS WHERE SourceAirport  =  \"APG\"",
+    "question": "Give the flight numbers of flights leaving from APG."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT FlightNo FROM FLIGHTS WHERE DestAirport  =  \"APG\"",
+    "question": "What are flight numbers of flights arriving at Airport \"APG\"?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT FlightNo FROM FLIGHTS WHERE DestAirport  =  \"APG\"",
+    "question": "Give the flight numbers of flights landing at APG."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.SourceAirport   =  T2.AirportCode WHERE T2.City  =  \"Jackson\"",
+    "question": "What are flight numbers of flights departing from \"Jackson\"?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.SourceAirport   =  T2.AirportCode WHERE T2.City  =  \"Jackson\"",
+    "question": "Give the flight numbers of flights leaving from Jackson."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport   =  T2.AirportCode WHERE T2.City  =  \"Jackson\"",
+    "question": "What are flight numbers of flights arriving at \"Jackson\"?"
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT T1.FlightNo FROM FLIGHTS AS T1 JOIN AIRPORTS AS T2 ON T1.DestAirport   =  T2.AirportCode WHERE T2.City  =  \"Jackson\"",
+    "question": "Give the flight numbers of flights arriving in Jackson."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM Flights AS T1 JOIN Airports AS T2 ON T1.DestAirport  =  T2.AirportCode WHERE T2.city  =  \"Syracuse\" OR T2.city  =  \"Jackson\"",
+    "question": "Find the number of flights landing in the  Syracuse or Jackson."
+  },
+  {
+    "type": 3,
+    "db_id": "flight_2",
+    "query": "SELECT count(*) FROM Flights AS T1 JOIN Airports AS T2 ON T1.DestAirport  =  T2.AirportCode WHERE T2.city  =  \"Syracuse\" OR T2.city  =  \"Jackson\"",
+    "question": "How many flights land in Syracuse or Jackson?"
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT AirportName FROM Airports WHERE AirportCode NOT IN (SELECT SourceAirport FROM Flights UNION SELECT DestAirport FROM Flights)",
+    "question": "Find the name of airports which do not have any flight in and out."
+  },
+  {
+    "type": 0,
+    "db_id": "flight_2",
+    "query": "SELECT AirportName FROM Airports WHERE AirportCode NOT IN (SELECT SourceAirport FROM Flights UNION SELECT DestAirport FROM Flights)",
+    "question": "Which airports do not have departing or arriving flights?"
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT count(*) FROM Documents",
+    "question": "How many documents do we have?"
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT count(*) FROM Documents",
+    "question": "Count the number of documents."
+  },
+  {
+    "type": 5,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT document_id ,  document_name ,  document_description FROM Documents",
+    "question": "List document IDs with its names and descriptions."
+  },
+  {
+    "type": 5,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT document_id ,  document_name ,  document_description FROM Documents",
+    "question": "Show all the ids with its names and descriptions for all documents?"
+  },
+  {
+    "type": 5,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT document_name ,  template_id FROM Documents WHERE Document_Description LIKE \"%w%\"",
+    "question": "Show the name with template id of documents with description with the letter 'w' in it?"
+  },
+  {
+    "type": 5,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT document_name , Document_ID, template_id FROM Documents WHERE Document_Description LIKE \"%w%\"",
+    "question": "Return the names with document and template ids for documents that contain the letter w in their description."
+  },
+  {
+    "type": 5,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT document_id ,  template_id ,  Document_Description FROM Documents WHERE document_name  =  \"Robbin CV\"",
+    "question": "What is the description for document named \"Robbin CV\" with its document and template id?"
+  },
+  {
+    "type": 5,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT document_id ,  template_id ,  Document_Description FROM Documents WHERE document_name  =  \"Robbin CV\"",
+    "question": "Return the description with document and template id of the document with the name Robbin CV."
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT count(DISTINCT template_id) FROM Documents",
+    "question": "How many different templates do all document use?"
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT count(DISTINCT template_id) FROM Documents",
+    "question": "Count the number of different templates used for documents."
+  },
+  {
+    "type": 5,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT count(*) FROM Documents AS T1 JOIN Templates AS T2 ON T1.Template_ID  =  T2.Template_ID WHERE T2.Template_Type_Code  =  'PPT'",
+    "question": "How many documents are using the PPT template?"
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT count(*) FROM Documents AS T1 JOIN Templates AS T2 ON T1.Template_ID  =  T2.Template_ID WHERE T2.Template_Type_Code  =  'PPT'",
+    "question": "Count the number of documents that use the PPT template type."
+  },
+  {
+    "type": 5,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT template_id ,  count(*) FROM Documents GROUP BY template_id",
+    "question": "Show all template ids and the number of documents using each template."
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT template_id ,  count(*) FROM Documents GROUP BY template_id",
+    "question": "What are all different template ids used for documents, and how many times were each of them used?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT T2.Date_Effective_From ,  T2.Date_Effective_To FROM Documents AS T1 JOIN Templates AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_id ORDER BY count(*) DESC LIMIT 1",
+    "question": "What is the effective date period for the template used by the most documents?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT T2.Date_Effective_From ,  T2.Date_Effective_To FROM Documents AS T1 JOIN Templates AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_id ORDER BY count(*) DESC LIMIT 1",
+    "question": "Return the effective date range of the template that is used for the greatest number of documents."
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT template_id FROM Documents GROUP BY template_id HAVING count(*)  >  1",
+    "question": "Show ids for all templates that are used by more than one document."
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT template_id FROM Documents GROUP BY template_id HAVING count(*)  >  1",
+    "question": "What are the template ids of any templates used in more than a single document?"
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT template_id FROM Templates EXCEPT SELECT template_id FROM Documents",
+    "question": "Show ids for all templates not used by any document."
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT template_id FROM Templates EXCEPT SELECT template_id FROM Documents",
+    "question": "What are the ids for templates that are not used in any documents?"
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT count(*) FROM Templates",
+    "question": "How many templates do we have?"
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT count(*) FROM Templates",
+    "question": "Count the number of templates."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To ,  template_type_code FROM Templates",
+    "question": "Show effective date period, and template type codes for all templates."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To ,  template_type_code FROM Templates",
+    "question": "What are the effective date period, and type codes for each template?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To FROM Templates",
+    "question": "Show all effective date period for all templates."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To FROM Templates",
+    "question": "What are the effective date range from to?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To FROM Templates WHERE template_type_code  =  \"PP\" OR template_type_code  =  \"PPT\"",
+    "question": "What are the effective date range with template type code PP or PPT?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To FROM Templates WHERE template_type_code  =  \"PP\" OR template_type_code  =  \"PPT\"",
+    "question": "Return the effective date range that have the code PP or PPT."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To FROM Templates WHERE template_type_code  =  \"CV\"",
+    "question": "Give me the effective date period whose template type code is CV?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To FROM Templates WHERE template_type_code  =  \"CV\"",
+    "question": "Return the effective date period of the template type CV."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To ,  template_type_code FROM Templates WHERE version_number  >  5",
+    "question": "What is the effective date period and template type code for the template with version number later than 5?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To ,  template_type_code FROM Templates WHERE version_number  >  5",
+    "question": "Return the effective date period and template type codes of templates with a version number greater than 5."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To ,  count(*) FROM Templates GROUP BY template_type_code",
+    "question": "Show all effective date period and number of templates for each."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To ,  count(*) FROM Templates GROUP BY template_type_code",
+    "question": "What are the effective date period, and how many templates correspond to each?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To FROM Templates GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1",
+    "question": "Which effective date period has most number of templates?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To FROM Templates GROUP BY template_type_code ORDER BY count(*) DESC LIMIT 1",
+    "question": "Return the effective date period that the most templates belong to."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To FROM Templates GROUP BY template_type_code HAVING count(*)  <  3",
+    "question": "Show all effective date period with less than three templates."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To FROM Templates GROUP BY template_type_code HAVING count(*)  <  3",
+    "question": "What are the effective date period that have fewer than 3 templates?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT min(Version_Number) ,  Date_Effective_From ,  Date_Effective_To FROM Templates",
+    "question": "What the smallest version number and its effective date date from and to?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT min(Version_Number) ,  Date_Effective_From ,  Date_Effective_To FROM Templates",
+    "question": "Return the lowest version number, along with its corresponding effective date date from and to."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT T1.Date_Effective_From ,  T1.Date_Effective_To FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id WHERE T2.document_name  =  \"Data base\"",
+    "question": "What is the effective date range of the template used by document with the name \"Data base\"?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT T1.Date_Effective_From ,  T1.Date_Effective_To FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id WHERE T2.document_name  =  \"Data base\"",
+    "question": "Return the effective date range of the template that is used by a document named Data base."
+  },
+  {
+    "type": 5,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT T2.document_name, T2.Document_ID, T2.template_id FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id WHERE T1.template_type_code  =  \"BK\"",
+    "question": "Show all document names along with document and template id using templates with template type code BK."
+  },
+  {
+    "type": 5,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT T2.document_name, T2.Document_ID, T2.template_id FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id WHERE T1.template_type_code  =  \"BK\"",
+    "question": "Return the names of documents with document and template id that use templates with the code BK?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT T1.Date_Effective_From ,  T1.Date_Effective_To ,  count(*) FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_type_code",
+    "question": "Show all effective date from and to, and the number of documents using each type."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT T1.Date_Effective_From ,  T1.Date_Effective_To ,  count(*) FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_type_code",
+    "question": "What are effective date from and to, and how many documents use each type?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT T1.Date_Effective_From ,  T1.Date_Effective_To FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_type_code ORDER BY count(*) DESC LIMIT 1",
+    "question": "Which effective date period is used by most number of documents?"
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT T1.Date_Effective_From ,  T1.Date_Effective_To FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_type_code ORDER BY count(*) DESC LIMIT 1",
+    "question": "Return the effective date period that is most commonly used in documents."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To FROM Templates EXCEPT SELECT Date_Effective_From ,  Date_Effective_To FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id",
+    "question": "Show all effective date from and to that are not used by any document."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT Date_Effective_From ,  Date_Effective_To FROM Templates EXCEPT SELECT Date_Effective_From ,  Date_Effective_To FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id",
+    "question": "What are the effective date from and to that are not used for any document?"
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT template_type_code ,  template_type_description FROM Ref_template_types",
+    "question": "Show all template type codes and descriptions."
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT template_type_code ,  template_type_description FROM Ref_template_types",
+    "question": "What are the type codes and descriptions for all template types?"
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT template_type_description FROM Ref_template_types WHERE template_type_code  =  \"AD\"",
+    "question": "What is the template type descriptions for template type code \"AD\"."
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT template_type_description FROM Ref_template_types WHERE template_type_code  =  \"AD\"",
+    "question": "Return the template type description of the template type with the code AD."
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT template_type_code FROM Ref_template_types WHERE template_type_description  =  \"Book\"",
+    "question": "What is the template type code for template type description \"Book\"."
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT template_type_code FROM Ref_template_types WHERE template_type_description  =  \"Book\"",
+    "question": "Return the type code of the template type with the description \"Book\"."
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT DISTINCT T1.template_type_description FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code  = T2.template_type_code JOIN Documents AS T3 ON T2.Template_ID  =  T3.template_ID",
+    "question": "What are the distinct template type descriptions for the templates ever used by any document?"
+  },
+  {
+    "type": 0,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT DISTINCT T1.template_type_description FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code  = T2.template_type_code JOIN Documents AS T3 ON T2.Template_ID  =  T3.template_ID",
+    "question": "Return the different descriptions for templates that have been used in a document."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT T2.Date_Effective_From ,  T2.Date_Effective_To FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code  = T2.template_type_code WHERE T1.template_type_description  =  \"Presentation\"",
+    "question": "What are the effective date range from to with template type description \"Presentation\"."
+  },
+  {
+    "type": 1,
+    "db_id": "cre_Doc_Template_Mgt",
+    "query": "SELECT T2.Date_Effective_From ,  T2.Date_Effective_To FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code  = T2.template_type_code WHERE T1.template_type_description  =  \"Presentation\"",
+    "question": "Return the effective date period corresponding to templates with the description 'Presentation'."
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT loser_name, winner_name FROM matches",
+    "question": "Find both player names in each match."
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT loser_name, winner_name FROM matches",
+    "question": "Give me both player names in each match?"
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT winner_age, loser_age FROM matches",
+    "question": "Find both player ages in each match."
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT winner_age, loser_age FROM matches",
+    "question": "Give me both player ages in each match."
+  },
+  {
+    "type": 3,
+    "db_id": "wta_1",
+    "query": "SELECT first_name ,  birth_date FROM players WHERE country_code  =  'USA'",
+    "question": "List the first name and birth date of all American players."
+  },
+  {
+    "type": 3,
+    "db_id": "wta_1",
+    "query": "SELECT first_name ,  birth_date FROM players WHERE country_code  =  'USA'",
+    "question": "What are the first names and birth dates of American players?"
+  },
+  {
+    "type": 5,
+    "db_id": "wta_1",
+    "query": "SELECT avg(loser_age) ,  avg(winner_age) FROM matches",
+    "question": "Find the average loser and winner age of all matches."
+  },
+  {
+    "type": 5,
+    "db_id": "wta_1",
+    "query": "SELECT avg(loser_age) ,  avg(winner_age) FROM matches",
+    "question": "What are the average loser and winner ages across matches?"
+  },
+  {
+    "type": 5,
+    "db_id": "wta_1",
+    "query": "SELECT avg(winner_rank), avg(loser_rank) FROM matches",
+    "question": "Find their all average rank including winner and loser in each matches."
+  },
+  {
+    "type": 5,
+    "db_id": "wta_1",
+    "query": "SELECT avg(winner_rank), avg(loser_rank) FROM matches",
+    "question": "What is the average rank for all players including winner and loser in all matches?"
+  },
+  {
+    "type": 5,
+    "db_id": "wta_1",
+    "query": "SELECT min(winner_rank), min(loser_rank) FROM matches",
+    "question": "Find the highest rank of all players including winner and loser in all matches."
+  },
+  {
+    "type": 5,
+    "db_id": "wta_1",
+    "query": "SELECT min(winner_rank), min(loser_rank) FROM matches",
+    "question": "What is the best rank of all players including winner and loser across all matches?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT count(DISTINCT country_code) FROM players",
+    "question": "find the number of distinct country codes of all players."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT count(DISTINCT country_code) FROM players",
+    "question": "How many distinct countries do players come from?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT count(DISTINCT loser_name) FROM matches",
+    "question": "Find the number of distinct name of losers."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT count(DISTINCT loser_name) FROM matches",
+    "question": "How many different loser names are there?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT tourney_name FROM matches GROUP BY tourney_name HAVING count(*)  >  10",
+    "question": "Find the name of tourney that has more than 10 matches."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT tourney_name FROM matches GROUP BY tourney_name HAVING count(*)  >  10",
+    "question": "What are the names of tournaments that have more than 10 matches?"
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT loser_name, winner_name FROM matches WHERE YEAR  =  2013 INTERSECT SELECT loser_name, winner_name FROM matches WHERE YEAR  =  2016",
+    "question": "List the names of all match players including winner and loser who played in both 2013 and 2016."
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT loser_name, winner_name FROM matches WHERE YEAR  =  2013 INTERSECT SELECT loser_name, winner_name FROM matches WHERE YEAR  =  2016",
+    "question": "What are the names of all match players including winner and loser who played in both 2013 and 2016?"
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT loser_name, winner_name FROM matches WHERE YEAR  =  2013 OR YEAR  =  2016",
+    "question": "List the all player name in each matche who played in years of 2013 or 2016."
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT loser_name, winner_name FROM matches WHERE YEAR  =  2013 OR YEAR  =  2016",
+    "question": "Including winner and loser, Give me all player name of each matche in 2013 or 2016 year?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id WHERE T2.tourney_name  =  'WTA Championships' INTERSECT SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id WHERE T2.tourney_name  =  'Australian Open'",
+    "question": "What are the country code and first name of the players who won in both tourney WTA Championships and Australian Open?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id WHERE T2.tourney_name  =  'WTA Championships' INTERSECT SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id WHERE T2.tourney_name  =  'Australian Open'",
+    "question": "What are the first names and country codes for players who won both the WTA Championships and the Australian Open?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT first_name ,  country_code FROM players ORDER BY birth_date LIMIT 1",
+    "question": "Find the first name and country code of the oldest player."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT first_name ,  country_code FROM players ORDER BY birth_date LIMIT 1",
+    "question": "What is the first name and country code of the oldest player?"
+  },
+  {
+    "type": 2,
+    "db_id": "wta_1",
+    "query": "SELECT first_name ,  last_name FROM players ORDER BY birth_date",
+    "question": "List the first and last name of all players order of their birth date from old to young."
+  },
+  {
+    "type": 2,
+    "db_id": "wta_1",
+    "query": "SELECT first_name ,  last_name FROM players ORDER BY birth_date",
+    "question": "What are the full names of all players, sorted from oldest to youngest?"
+  },
+  {
+    "type": 2,
+    "db_id": "wta_1",
+    "query": "SELECT first_name ,  last_name FROM players WHERE hand  =  'L' ORDER BY birth_date",
+    "question": "List the first and last name of all players who are left / L hand in the order of their date of birth from the oldest to the youngest."
+  },
+  {
+    "type": 2,
+    "db_id": "wta_1",
+    "query": "SELECT first_name ,  last_name FROM players WHERE hand  =  'L' ORDER BY birth_date desc",
+    "question": "What are the name of all left handed players, in order of date of birth from the young to the old?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id ORDER BY T2.tours DESC LIMIT 1",
+    "question": "Find the first name and country code of the player who did the most number of tours."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id ORDER BY T2.tours DESC LIMIT 1",
+    "question": "What is the first name and country code of the player with the most tours?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT YEAR FROM matches GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1",
+    "question": "Find the year that has the most number of matches."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT YEAR FROM matches GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1",
+    "question": "Which year had the most matches?"
+  },
+  {
+    "type": 2,
+    "db_id": "wta_1",
+    "query": "SELECT winner_name ,  winner_rank_points FROM matches GROUP BY winner_name ORDER BY count(*) DESC LIMIT 1",
+    "question": "Find the name and rank points of the player who won the most times."
+  },
+  {
+    "type": 2,
+    "db_id": "wta_1",
+    "query": "SELECT winner_name ,  winner_rank_points FROM matches GROUP BY winner_name ORDER BY count(*) DESC LIMIT 1",
+    "question": "What is the name of the player who has won the most matches, and how many rank points does this player have?"
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT loser_name, winner_name FROM matches WHERE tourney_name  =  'Australian Open' ORDER BY winner_rank_points DESC LIMIT 1",
+    "question": "Find all match player name including winner and loser where the winner has the highest rank points and participated in the Australian Open tourney."
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT loser_name, winner_name FROM matches WHERE tourney_name  =  'Australian Open' ORDER BY winner_rank_points DESC LIMIT 1",
+    "question": "What are the match player names including winner and loser where the winner had the most rank points and participated in the Australian Open tournament?"
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT winner_name ,  loser_name FROM matches ORDER BY minutes DESC LIMIT 1",
+    "question": "Including winner and loser, find all the player names in each match with greatest number of minutes."
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT winner_name ,  loser_name FROM matches ORDER BY minutes DESC LIMIT 1",
+    "question": "In each match, what are the winner with loser names who played in the longest match?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT avg(ranking) ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.first_name",
+    "question": "Find the average ranking for each player and their first name."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT avg(ranking) ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.first_name",
+    "question": "What are the first names of all players, and their average rankings?"
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT sum(ranking_points) ,  T1.first_name, T1.last_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.first_name",
+    "question": "Find the total ranking points for each player and their name."
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT sum(ranking_points) ,  T1.first_name, T1.last_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.first_name",
+    "question": "What are the names of all players, and their total ranking points?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT count(*) ,  country_code FROM players GROUP BY country_code",
+    "question": "find the number of players for each country."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT count(*) ,  country_code FROM players GROUP BY country_code",
+    "question": "How many players are from each country?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT country_code FROM players GROUP BY country_code ORDER BY count(*) DESC LIMIT 1",
+    "question": "find the code of the country where has the greatest number of players."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT country_code FROM players GROUP BY country_code ORDER BY count(*) DESC LIMIT 1",
+    "question": "What is the code of the country with the most players?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT country_code FROM players GROUP BY country_code HAVING count(*)  >  50",
+    "question": "Find the codes of countries that have more than 50 players."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT country_code FROM players GROUP BY country_code HAVING count(*)  >  50",
+    "question": "What are the codes of countries with more than 50 players?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT sum(tours) ,  ranking_date FROM rankings GROUP BY ranking_date",
+    "question": "Find the total number of tours for each ranking date."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT sum(tours) ,  ranking_date FROM rankings GROUP BY ranking_date",
+    "question": "How many total tours were there for each ranking date?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT count(*) ,  YEAR FROM matches GROUP BY YEAR",
+    "question": "Find the number of matches happened in each year."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT count(*) ,  YEAR FROM matches GROUP BY YEAR",
+    "question": "How many matches were played in each year?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT DISTINCT winner_name ,  winner_rank FROM matches ORDER BY winner_age LIMIT 3",
+    "question": "Find the name and rank of the 3 youngest winners across all matches."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT DISTINCT winner_name ,  winner_rank FROM matches ORDER BY winner_age LIMIT 3",
+    "question": "What are the names and ranks of the three youngest winners across all matches?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT count(DISTINCT winner_name) FROM matches WHERE tourney_name  =  'WTA Championships' AND winner_hand  =  'L'",
+    "question": "How many different winners both participated in the WTA Championships and were left handed?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT count(DISTINCT winner_name) FROM matches WHERE tourney_name  =  'WTA Championships' AND winner_hand  =  'L'",
+    "question": "Find the number of left handed winners who participated in the WTA Championships."
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT T1.first_name , T1.last_name ,  T1.birth_date FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id ORDER BY T2.winner_rank_points DESC LIMIT 1",
+    "question": "Find the name and birth date of the winner who has the highest rank points in all matches."
+  },
+  {
+    "type": 1,
+    "db_id": "wta_1",
+    "query": "SELECT T1.first_name , T1.last_name  ,  T1.birth_date FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id ORDER BY T2.winner_rank_points DESC LIMIT 1",
+    "question": "What is the name and birth date of the player with the most winner rank points across all matches?"
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT count(*) ,  hand FROM players GROUP BY hand",
+    "question": "Find the number of players for each hand type."
+  },
+  {
+    "type": 0,
+    "db_id": "wta_1",
+    "query": "SELECT count(*) ,  hand FROM players GROUP BY hand",
+    "question": "How many players are there for each hand type?"
+  },
+  {
+    "type": 1,
+    "db_id": "student_transcripts_tracking",
+    "query": "SELECT line_1 ,  line_2, line_3 FROM addresses",
+    "question": "what are all the addresse lines?"
+  },
+  {
+    "type": 1,
+    "db_id": "student_transcripts_tracking",
+    "query": "SELECT line_1 ,  line_2, line_3 FROM addresses",
+    "question": "Give me the three addresse lines?"
+  },
+  {
+    "type": 4,
+    "db_id": "new_orchestra",
+    "query": "SELECT count(*) FROM show where If_first_show = 'T'",
+    "question": "How many first shows?"
+  },
+  {
+    "type": 4,
+    "db_id": "new_orchestra",
+    "query": "SELECT count(*) FROM show where If_first_show = 'T'",
+    "question": "Count the number of first show."
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Name FROM conductor ORDER BY birthday desc",
+    "question": "List the names of conductors in ascending order of age."
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Name FROM conductor ORDER BY birthday desc",
+    "question": "What are the names of conductors, ordered by age?"
+  },
+  {
+    "type": 3,
+    "db_id": "new_orchestra",
+    "query": "SELECT Name FROM conductor WHERE Nationality = 'USA'",
+    "question": "What are the names of american conductors?"
+  },
+  {
+    "type": 3,
+    "db_id": "new_orchestra",
+    "query": "SELECT Name FROM conductor WHERE Nationality = 'USA'",
+    "question": "Return the names of american conductors."
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Record_Company FROM orchestra ORDER BY Year_of_Founded asc",
+    "question": "What are the record companies of orchestras in the order of founded years from oldest to latest?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Record_Company FROM orchestra ORDER BY Year_of_Founded asc",
+    "question": "Return the record companies of orchestras, sorted by the founded year from oldest to latest."
+  },
+  {
+    "type": 4,
+    "db_id": "new_orchestra",
+    "query": "SELECT avg(Attendance) FROM SHOW where If_first_show = 'F'",
+    "question": "What is the average attendance of non-first shows?"
+  },
+  {
+    "type": 4,
+    "db_id": "new_orchestra",
+    "query": "SELECT avg(Attendance) FROM SHOW where If_first_show = 'F'",
+    "question": "Return the average attendance across all non-first shows."
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT max(SHARE) ,  min(SHARE) FROM performance WHERE TYPE != \"Live final\"",
+    "question": "What are the maximum and minimum share of performances whose type is not \"Live final\"."
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT max(SHARE) ,  min(SHARE) FROM performance WHERE TYPE != \"Live final\"",
+    "question": "Return the maximum and minimum shares for performances that do not have the type \"Live final\"."
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT count(DISTINCT Nationality) FROM conductor",
+    "question": "How many different nationalities do conductors have?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT count(DISTINCT Nationality) FROM conductor",
+    "question": "Count the number of different nationalities of conductors."
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Name FROM conductor ORDER BY birthday DESC",
+    "question": "List names of conductors in ascending order of age."
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Name FROM conductor ORDER BY birthday DESC",
+    "question": "What are the names of conductors, sorted ascending by age?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Name FROM conductor ORDER BY Year_of_Work DESC LIMIT 1",
+    "question": "List the name of the conductor with the longest work."
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Name FROM conductor ORDER BY Year_of_Work DESC LIMIT 1",
+    "question": "What is the name of the conductor who has worked the longest?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT T1.Name ,  T2.Orchestra FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID",
+    "question": "Show the names of conductors and the orchestras they have conducted."
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT T1.Name ,  T2.Orchestra FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID",
+    "question": "What are the names of conductors as well as the corresonding orchestras that they have conducted?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID GROUP BY T2.Conductor_ID HAVING COUNT(*)  >  1",
+    "question": "Show the names of conductors that have conducted more than one orchestras."
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID GROUP BY T2.Conductor_ID HAVING COUNT(*)  >  1",
+    "question": "What are the names of conductors who have conducted at more than one orchestra?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID GROUP BY T2.Conductor_ID ORDER BY COUNT(*) DESC LIMIT 1",
+    "question": "Show the name of the conductor that has conducted the most number of orchestras."
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID GROUP BY T2.Conductor_ID ORDER BY COUNT(*) DESC LIMIT 1",
+    "question": "What is the name of the conductor who has conducted the most orchestras?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID order by Year_of_Founded asc limit 1",
+    "question": "Please show the name of the conductor who has conducted the oldest orchestras."
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID order by Year_of_Founded  desc limit 1",
+    "question": "What are the names of conductors who have conducted the latest orchestras?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT Record_Company ,  COUNT(*) FROM orchestra GROUP BY Record_Company",
+    "question": "Please show the different record companies and the corresponding number of orchestras."
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT Record_Company ,  COUNT(*) FROM orchestra GROUP BY Record_Company",
+    "question": "How many orchestras does each record company manage?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Major_Record_Format FROM orchestra ORDER BY Year_of_Founded desc",
+    "question": "Please show the record formats of orchestras in ascending order of age."
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Major_Record_Format FROM orchestra ORDER BY Year_of_Founded desc",
+    "question": "What are the major record formats of orchestras, sorted by their age?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Record_Company FROM orchestra ORDER BY Year_of_Founded asc LIMIT 1",
+    "question": "List the record company shared by the oldest orchestras."
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Record_Company FROM orchestra ORDER BY Year_of_Founded desc LIMIT 1",
+    "question": "What is the record company used by the newest orchestras?"
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT Orchestra FROM orchestra WHERE Orchestra_ID NOT IN (SELECT Orchestra_ID FROM performance)",
+    "question": "List the names of orchestras that have no performance."
+  },
+  {
+    "type": 0,
+    "db_id": "new_orchestra",
+    "query": "SELECT Orchestra FROM orchestra WHERE Orchestra_ID NOT IN (SELECT Orchestra_ID FROM performance)",
+    "question": "What are the orchestras that do not have any performances?"
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Record_Company FROM orchestra WHERE Year_of_Founded  <=  2003",
+    "question": "Show the record companies shared by orchestras founded before or in 2003."
+  },
+  {
+    "type": 2,
+    "db_id": "new_orchestra",
+    "query": "SELECT Record_Company FROM orchestra WHERE Year_of_Founded  >=  2003",
+    "question": "What are the record companies that are used by both orchestras founded after or in 2003?"
+  },
+  {
+    "type": 4,
+    "db_id": "new_orchestra",
+    "query": "SELECT COUNT(*) FROM show WHERE Result  =  \"Glebe Park\" and If_first_show  =  \"T\"",
+    "question": "Find the number of first shows in \"Glebe Park\"."
+  },
+  {
+    "type": 4,
+    "db_id": "new_orchestra",
+    "query": "SELECT COUNT(*) FROM show WHERE Result  =  \"Glebe Park\" and If_first_show  =  \"T\"",
+    "question": "Count the number of all first shows in \"Glebe Park\""
+  },
+  {
+    "type": 4,
+    "db_id": "new_orchestra",
+    "query": "SELECT Type FROM performance AS T1 JOIN show AS T2 ON T1.Performance_ID  =  T2.Performance_ID WHERE If_first_show = 'F' GROUP BY T2.Performance_ID HAVING COUNT(*)  >  1",
+    "question": "Show the type in which performance that have given more than one non-first show."
+  },
+  {
+    "type": 4,
+    "db_id": "new_orchestra",
+    "query": "SELECT Type FROM performance AS T1 JOIN show AS T2 ON T1.Performance_ID  =  T2.Performance_ID Where If_first_show = 'F' GROUP BY T2.Performance_ID HAVING COUNT(*)  >  1",
+    "question": "What are type of performances that have had more than one non-first show?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT state FROM Owners INTERSECT SELECT state FROM Professionals",
+    "question": "Which states have both owners and professionals living there?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT state FROM Owners INTERSECT SELECT state FROM Professionals",
+    "question": "Find the states where both owners and professionals live."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT avg(age) FROM Dogs WHERE dog_id IN ( SELECT dog_id FROM Treatments )",
+    "question": "What is the average age of the dogs who have gone through any treatments?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT avg(age) FROM Dogs WHERE dog_id IN ( SELECT dog_id FROM Treatments )",
+    "question": "Find the average age of the dogs who went through treatments."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT professional_id ,  last_name ,  cell_number FROM Professionals WHERE state  =  'Indiana' UNION SELECT T1.professional_id ,  T1.last_name ,  T1.cell_number FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >  2",
+    "question": "Which professionals live in the state of Indiana or have done treatment on more than 2 treatments? List his or her id, last name and cell phone."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT professional_id ,  last_name ,  cell_number FROM Professionals WHERE state  =  'Indiana' UNION SELECT T1.professional_id ,  T1.last_name ,  T1.cell_number FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >  2",
+    "question": "Find the id, last name and cell phone of the professionals who live in the state of Indiana or have performed more than two treatments."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT name FROM Dogs WHERE dog_id NOT IN( SELECT dog_id FROM Treatments GROUP BY dog_id HAVING sum(cost_of_treatment)  >  1000 )",
+    "question": "Which dogs have not cost their owner more than 1000 for treatment? List the dog names."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT name FROM Dogs WHERE dog_id NOT IN( SELECT dog_id FROM Treatments GROUP BY dog_id HAVING sum(cost_of_treatment)  >  1000 )",
+    "question": "What are the names of the dogs for which the owner spent more than 1000 for treatment?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT first_name FROM Professionals UNION SELECT first_name FROM Owners EXCEPT SELECT name FROM Dogs",
+    "question": "Which first names are used for professionals or owners but are not used as dog names?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT first_name FROM Professionals UNION SELECT first_name FROM Owners EXCEPT SELECT name FROM Dogs",
+    "question": "Find the first names that are used for professionals or owners but are not used as dog names."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT professional_id ,  first_name , last_name FROM Professionals EXCEPT SELECT T1.professional_id ,  T1.first_name , T1.last_name FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id",
+    "question": "Which professional did not operate any treatment on dogs? List the professional's id, and name."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT professional_id ,  first_name , last_name FROM Professionals EXCEPT SELECT T1.professional_id ,  T1.first_name , T1.last_name FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id",
+    "question": "Give me the id, and name of the professionals who did not perform any treatment on dogs."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.owner_id ,  T2.first_name , T2.last_name FROM Dogs AS T1 JOIN Owners AS T2 ON T1.owner_id  =  T2.owner_id GROUP BY T1.owner_id ORDER BY count(*) DESC LIMIT 1",
+    "question": "Which owner owns the most dogs? List the owner id, and name."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.owner_id ,  T2.first_name , T2.last_name FROM Dogs AS T1 JOIN Owners AS T2 ON T1.owner_id  =  T2.owner_id GROUP BY T1.owner_id ORDER BY count(*) DESC LIMIT 1",
+    "question": "Return the owner id and name of the owner who has the most dogs."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.professional_id ,  T1.home_phone ,  T1.cell_number FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >=  2",
+    "question": "Which professionals have done at least two treatments? List the professional's id, home and phone number."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.professional_id ,  T1.home_phone ,  T1.cell_number FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >=  2",
+    "question": "What are the id, home and phone number of the professionals who have performed two or more treatments?"
+  },
+  {
+    "type": 4,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.breed_name FROM Breeds AS T1 JOIN Dogs AS T2 ON T1.breed_code  =  T2.breed_code where abandoned_yn = 1 GROUP BY T1.breed_name ORDER BY count(*) DESC LIMIT 1",
+    "question": "What is the name of the breed with the most abandoned dogs?"
+  },
+  {
+    "type": 4,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.breed_name FROM Breeds AS T1 JOIN Dogs AS T2 ON T1.breed_code  =  T2.breed_code where abandoned_yn = 1 GROUP BY T1.breed_name ORDER BY count(*) DESC LIMIT 1",
+    "question": "Which breed do the most abandoned dogs have? Give me the breed name."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.owner_id ,  T1.last_name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id JOIN Treatments AS T3 ON T2.dog_id  =  T3.dog_id GROUP BY T1.owner_id ORDER BY count(*) DESC LIMIT 1",
+    "question": "Which owner has paid for the most treatments on his or her dogs? List the owner id and last name."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.owner_id ,  T1.last_name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id JOIN Treatments AS T3 ON T2.dog_id  =  T3.dog_id GROUP BY T1.owner_id ORDER BY count(*) DESC LIMIT 1",
+    "question": "Tell me the owner id and last name of the owner who spent the most on treatments of his or her dogs."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.treatment_type_description FROM Treatment_types AS T1 JOIN Treatments AS T2 ON T1.treatment_type_code  =  T2.treatment_type_code GROUP BY T1.treatment_type_code ORDER BY sum(cost_of_treatment) ASC LIMIT 1",
+    "question": "What is the description of the treatment type that costs the least money in total?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.treatment_type_description FROM Treatment_types AS T1 JOIN Treatments AS T2 ON T1.treatment_type_code  =  T2.treatment_type_code GROUP BY T1.treatment_type_code ORDER BY sum(cost_of_treatment) ASC LIMIT 1",
+    "question": "Give me the description of the treatment type whose total cost is the lowest."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.owner_id ,  T1.zip_code FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id JOIN Treatments AS T3 ON T2.dog_id  =  T3.dog_id GROUP BY T1.owner_id ORDER BY sum(T3.cost_of_treatment) DESC LIMIT 1",
+    "question": "Which owner has paid the largest amount of money in total for their dogs? Show the owner id and zip code."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.owner_id ,  T1.zip_code FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id JOIN Treatments AS T3 ON T2.dog_id  =  T3.dog_id GROUP BY T1.owner_id ORDER BY sum(T3.cost_of_treatment) DESC LIMIT 1",
+    "question": "Find the owner id and zip code of the owner who spent the most money in total for his or her dogs."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.professional_id ,  T1.first_name , T1.last_name FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >=  2",
+    "question": "Which professionals have done at least two types of treatments? List the professional id and name."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.professional_id ,  T1.home_phone ,  T1.cell_number FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >=  2",
+    "question": "Find the id and home and phone number of the professionals who operate two or more types of treatments."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT DISTINCT T1.first_name , T1.last_name FROM Professionals AS T1 JOIN Treatments AS T2 WHERE cost_of_treatment  <  ( SELECT avg(cost_of_treatment) FROM Treatments )",
+    "question": "What are the name of the professionals who have done treatment with cost below average?"
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT DISTINCT T1.first_name , T1.last_name FROM Professionals AS T1 JOIN Treatments AS T2 WHERE cost_of_treatment  <  ( SELECT avg(cost_of_treatment) FROM Treatments )",
+    "question": "Which professionals have operated a treatment that costs less than the average? Give me their names."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.date_of_treatment ,  T2.first_name , T2.last_name FROM Treatments AS T1 JOIN Professionals AS T2 ON T1.professional_id  =  T2.professional_id",
+    "question": "List the date of each treatment, together with the name of the professional who operated it."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.date_of_treatment ,  T2.first_name , T2.last_name FROM Treatments AS T1 JOIN Professionals AS T2 ON T1.professional_id  =  T2.professional_id",
+    "question": "What are the date and the operating professional's name of each treatment?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.cost_of_treatment ,  T2.treatment_type_description FROM Treatments AS T1 JOIN treatment_types AS T2 ON T1.treatment_type_code  =  T2.treatment_type_code",
+    "question": "List the cost of each treatment and the corresponding treatment type description."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.cost_of_treatment ,  T2.treatment_type_description FROM Treatments AS T1 JOIN treatment_types AS T2 ON T1.treatment_type_code  =  T2.treatment_type_code",
+    "question": "What are the cost and treatment type description of each treatment?"
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.first_name , T1.last_name ,  T2.size_code FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id",
+    "question": "List each owner's name, and the size of his for her dog."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.first_name , T1.last_name ,  T2.size_code FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id",
+    "question": "What are each owner's name, and the size of their dog?"
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.first_name , T1.last_name ,  T2.name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id",
+    "question": "List pairs of the owner's names and the dogs's name."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.first_name , T1.last_name ,  T2.name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id",
+    "question": "What are each owner's name and their dogs's name?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.name ,  T2.date_of_treatment FROM Dogs AS T1 JOIN Treatments AS T2 ON T1.dog_id  =  T2.dog_id WHERE T1.breed_code  =  ( SELECT breed_code FROM Dogs GROUP BY breed_code ORDER BY count(*) ASC LIMIT 1 )",
+    "question": "List the names of the dogs of the rarest breed and the treatment dates of them."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.name ,  T2.date_of_treatment FROM Dogs AS T1 JOIN Treatments AS T2 ON T1.dog_id  =  T2.dog_id WHERE T1.breed_code  =  ( SELECT breed_code FROM Dogs GROUP BY breed_code ORDER BY count(*) ASC LIMIT 1 )",
+    "question": "Which dogs are of the rarest breed? Show their names and treatment dates."
+  },
+  {
+    "type": 3,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.first_name ,  T2.name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id WHERE T1.state  =  'Virginia'",
+    "question": "Which dogs are owned by someone who lives in VA? List the owner's first name and the dog's name."
+  },
+  {
+    "type": 3,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.first_name ,  T2.name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id WHERE T1.state  =  'Virginia'",
+    "question": "Find the first names of owners living in VA and the names of dogs they own."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT DISTINCT T1.date_arrived ,  T1.date_departed FROM Dogs AS T1 JOIN Treatments AS T2 ON T1.dog_id  =  T2.dog_id",
+    "question": "What is the treatment date from dog arriving to departing?"
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT DISTINCT T1.date_arrived ,  T1.date_departed FROM Dogs AS T1 JOIN Treatments AS T2 ON T1.dog_id  =  T2.dog_id",
+    "question": "Find the dog treatment period from arriving to departing date."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.last_name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id WHERE T2.age  =  ( SELECT max(age) FROM Dogs )",
+    "question": "List the last name of the owner owning the youngest dog."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT T1.last_name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id WHERE T2.age  =  ( SELECT max(age) FROM Dogs )",
+    "question": "Who owns the youngest dog? Give me his or her last name."
+  },
+  {
+    "type": 3,
+    "db_id": "dog_kennels",
+    "query": "SELECT email_address FROM Professionals WHERE state  =  'Hawaii' OR state  =  'Wisconsin'",
+    "question": "List the emails of the professionals who live in the state of HI or WI."
+  },
+  {
+    "type": 3,
+    "db_id": "dog_kennels",
+    "query": "SELECT email_address FROM Professionals WHERE state  =  'Hawaii' OR state  =  'Wisconsin'",
+    "question": "What are the emails of the professionals living in either the state of HI or WI?"
+  },
+  {
+    "type": 4,
+    "db_id": "dog_kennels",
+    "query": "SELECT date_arrived ,  date_departed FROM Dogs where abandoned_yn = 1",
+    "question": "What are the arriving date and the departing date of all the abandoned dogs?"
+  },
+  {
+    "type": 4,
+    "db_id": "dog_kennels",
+    "query": "SELECT date_arrived ,  date_departed FROM Dogs where abandoned_yn = 1",
+    "question": "List the arrival date and the departure date for all the abandoned dogs."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT count(DISTINCT dog_id) FROM Treatments",
+    "question": "How many dogs went through any treatments?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT count(DISTINCT dog_id) FROM Treatments",
+    "question": "Count the number of dogs that went through a treatment."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT count(DISTINCT professional_id) FROM Treatments",
+    "question": "How many professionals have performed any treatment to dogs?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT count(DISTINCT professional_id) FROM Treatments",
+    "question": "Find the number of professionals who have ever treated dogs."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT first_name , last_name FROM professionals WHERE city LIKE '%West%'",
+    "question": "Which professionals live in a city containing the substring 'West'? List his or her name."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT first_name , last_name FROM professionals WHERE city LIKE '%West%'",
+    "question": "Find the name of the professionals living in a city that contains the substring 'West'."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT first_name , last_name FROM Owners WHERE state LIKE '%North%'",
+    "question": "Which owners live in the state whose name contains the substring 'North'? List his name."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT first_name , last_name FROM Owners WHERE state LIKE '%North%'",
+    "question": "Return the name of the owners living in a state whose name contains the substring 'North'."
+  },
+  {
+    "type": 4,
+    "db_id": "dog_kennels",
+    "query": "SELECT count(*) FROM Dogs WHERE abandoned_yn = 1 and age  <  ( SELECT avg(age) FROM Dogs )",
+    "question": "How many abandoned dogs have an age below the average?"
+  },
+  {
+    "type": 4,
+    "db_id": "dog_kennels",
+    "query": "SELECT count(*) FROM Dogs WHERE abandoned_yn = 1 and age  <  ( SELECT avg(age) FROM Dogs )",
+    "question": "Count the number of abandoned dogs of an age below the average."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT cost_of_treatment FROM Treatments ORDER BY date_of_treatment DESC LIMIT 1",
+    "question": "How much does the most recent treatment cost?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT cost_of_treatment FROM Treatments ORDER BY date_of_treatment DESC LIMIT 1",
+    "question": "Show me the cost of the most recently performed treatment."
+  },
+  {
+    "type": 4,
+    "db_id": "dog_kennels",
+    "query": "SELECT count(*) FROM Dogs WHERE abandoned_yn = 1 and dog_id NOT IN ( SELECT dog_id FROM Treatments )",
+    "question": "How many abandoned dogs have not gone through any treatment?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT count(*) FROM Dogs WHERE dog_id NOT IN ( SELECT dog_id FROM Treatments )",
+    "question": "Tell me the number of dogs that have received any treatment."
+  },
+  {
+    "type": 4,
+    "db_id": "dog_kennels",
+    "query": "SELECT count(*) FROM Owners WHERE owner_id NOT IN ( SELECT owner_id FROM Dogs where abandoned_yn = 1 )",
+    "question": "How many owners temporarily do not have any abandoned dogs?"
+  },
+  {
+    "type": 4,
+    "db_id": "dog_kennels",
+    "query": "SELECT count(*) FROM Owners WHERE owner_id NOT IN ( SELECT owner_id FROM Dogs where abandoned_yn = 1 )",
+    "question": "Find the number of owners who do not own any abandoned dogs at this moment."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT count(*) FROM Professionals WHERE professional_id NOT IN ( SELECT professional_id FROM Treatments )",
+    "question": "How many professionals did not operate any treatment on dogs?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT count(*) FROM Professionals WHERE professional_id NOT IN ( SELECT professional_id FROM Treatments )",
+    "question": "Find the number of professionals who have not treated any dogs."
+  },
+  {
+    "type": 4,
+    "db_id": "dog_kennels",
+    "query": "SELECT name ,  age ,  weight FROM Dogs WHERE abandoned_yn  =  1",
+    "question": "List the dog name, age and weight of the abandoned dogs? 1 stands for yes, and 0 stands for no."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT name ,  age ,  weight FROM Dogs WHERE abandoned_yn  =  1",
+    "question": "What are the dog name, age and weight of the dogs that were abandoned? Note that 1 stands for yes, and 0 stands for no in the tables."
+  },
+  {
+    "type": 4,
+    "db_id": "dog_kennels",
+    "query": "SELECT avg(age) FROM Dogs where abandoned_yn = 1",
+    "question": "What is the average age of all the abandoned dogs?"
+  },
+  {
+    "type": 4,
+    "db_id": "dog_kennels",
+    "query": "SELECT avg(age) FROM Dogs where abandoned_yn = 1",
+    "question": "Compute the average age of all the abandoned dogs."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT max(age) FROM Dogs",
+    "question": "What is the age of the oldest dog?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT max(age) FROM Dogs",
+    "question": "Tell me the age of the oldest dog."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT charge_type ,  charge_amount FROM Charges",
+    "question": "How much does each charge type costs? List both charge type and amount."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT charge_type ,  charge_amount FROM Charges",
+    "question": "List each charge type and its amount."
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT max(charge_amount) FROM Charges",
+    "question": "How much does the most expensive charge type costs?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT max(charge_amount) FROM Charges",
+    "question": "What is the charge amount of the most expensive charge type?"
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT email_address , first_name , last_name FROM professionals",
+    "question": "List the email and name of all the professionals."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT email_address , first_name , last_name FROM professionals",
+    "question": "What are the email, and name of each professional?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT DISTINCT breed_code ,  size_code FROM dogs",
+    "question": "What are all the possible breed type and size type combinations?"
+  },
+  {
+    "type": 0,
+    "db_id": "dog_kennels",
+    "query": "SELECT DISTINCT breed_code ,  size_code FROM dogs",
+    "question": "Find the distinct breed type and size type combinations for dogs."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT DISTINCT T1.first_name , T1.last_name , T3.treatment_type_description FROM professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id JOIN Treatment_types AS T3 ON T2.treatment_type_code  =  T3.treatment_type_code",
+    "question": "List the name of all the professionals along with the description of the treatment they have done."
+  },
+  {
+    "type": 1,
+    "db_id": "dog_kennels",
+    "query": "SELECT DISTINCT T1.first_name , T1.last_name , T3.treatment_type_description FROM professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id JOIN Treatment_types AS T3 ON T2.treatment_type_code  =  T3.treatment_type_code",
+    "question": "What are each professional's name and description of the treatment they have performed?"
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT count(*) FROM singer",
+    "question": "How many singers are there?"
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT count(*) FROM singer",
+    "question": "What is the count of singers?"
+  },
+  {
+    "type": 2,
+    "db_id": "singer",
+    "query": "SELECT Name FROM singer ORDER BY Birth_Year desc",
+    "question": "List the name of singers in ascending order of age."
+  },
+  {
+    "type": 2,
+    "db_id": "singer",
+    "query": "SELECT Name FROM singer ORDER BY Birth_Year desc",
+    "question": "What are the names of singers ordered by ascending age?"
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT Birth_Year ,  Citizenship FROM singer",
+    "question": "What are the birth year and citizenship of singers?"
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT Birth_Year ,  Citizenship FROM singer",
+    "question": "What are the birth years and citizenships of the singers?"
+  },
+  {
+    "type": 3,
+    "db_id": "singer",
+    "query": "SELECT Name FROM singer WHERE Citizenship != \"France\"",
+    "question": "List the name of singers who is not French."
+  },
+  {
+    "type": 3,
+    "db_id": "singer",
+    "query": "SELECT Name FROM singer WHERE Citizenship != \"France\"",
+    "question": "What are the names of the singers who are not French?"
+  },
+  {
+    "type": 2,
+    "db_id": "singer",
+    "query": "SELECT Name FROM singer WHERE Birth_Year  <=  1948",
+    "question": "Show the name of singers whose birth year is earlier than or in 1948?"
+  },
+  {
+    "type": 2,
+    "db_id": "singer",
+    "query": "SELECT Name FROM singer WHERE Birth_Year  <=  1948",
+    "question": "What are the names of the singers whose birth years are earlier than or in 1948?"
+  },
+  {
+    "type": 2,
+    "db_id": "singer",
+    "query": "SELECT Name FROM singer ORDER BY Birth_Year DESC LIMIT 1",
+    "question": "What is the name of the singer with the youngest age?"
+  },
+  {
+    "type": 2,
+    "db_id": "singer",
+    "query": "SELECT Name FROM singer ORDER BY Birth_Year DESC LIMIT 1",
+    "question": "What is the name of the singer who is the youngest?"
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT Citizenship ,  COUNT(*) FROM singer GROUP BY Citizenship",
+    "question": "Show different citizenship of singers and the number of singers of each citizenship."
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT Citizenship ,  COUNT(*) FROM singer GROUP BY Citizenship",
+    "question": "For each citizenship, how many singers are from that country?"
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT Citizenship FROM singer GROUP BY Citizenship ORDER BY COUNT(*) DESC LIMIT 1",
+    "question": "Please show the most common citizenship of singers."
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT Citizenship FROM singer GROUP BY Citizenship ORDER BY COUNT(*) DESC LIMIT 1",
+    "question": "What is the msot common singer citizenship?"
+  },
+  {
+    "type": 5,
+    "db_id": "singer",
+    "query": "SELECT Citizenship ,  max(Net_Worth_Millions) FROM singer GROUP BY Citizenship",
+    "question": "Show different citizenships and the highest net worth of singers of each citizenship."
+  },
+  {
+    "type": 5,
+    "db_id": "singer",
+    "query": "SELECT Citizenship ,  max(Net_Worth_Millions) FROM singer GROUP BY Citizenship",
+    "question": "For each citizenship, what is the highest net worth?"
+  },
+  {
+    "type": 5,
+    "db_id": "singer",
+    "query": "SELECT Title FROM song order by Sales desc limit 1",
+    "question": "Show the names of the highest sales songs."
+  },
+  {
+    "type": 5,
+    "db_id": "singer",
+    "query": "SELECT Title FROM song order by Sales desc limit 1",
+    "question": "What are names of the highest sales songs?"
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT DISTINCT T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID WHERE T2.Sales  >  300000",
+    "question": "Show distinct names of singers that have songs with sales more than 300000."
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT DISTINCT T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID WHERE T2.Sales  >  300000",
+    "question": "what are the different names of the singers that have sales more than 300000?"
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID GROUP BY T1.Name HAVING COUNT(*)  >  1",
+    "question": "Show the names of singers that have more than one song."
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID GROUP BY T1.Name HAVING COUNT(*)  >  1",
+    "question": "What are the names of the singers that have more than one songs?"
+  },
+  {
+    "type": 5,
+    "db_id": "singer",
+    "query": "SELECT T1.Name ,  max(T2.Highest_Position) FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID GROUP BY T1.Name",
+    "question": "Show the names of singers and the max highest position of their songs."
+  },
+  {
+    "type": 5,
+    "db_id": "singer",
+    "query": "SELECT T1.Name ,  max(T2.Highest_Position) FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID GROUP BY T1.Name",
+    "question": "For each singer name, what is the maximum highest position for their songs?"
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT Name FROM singer WHERE Singer_ID NOT IN (SELECT Singer_ID FROM song)",
+    "question": "List the name of singers that do not have any song."
+  },
+  {
+    "type": 0,
+    "db_id": "singer",
+    "query": "SELECT Name FROM singer WHERE Singer_ID NOT IN (SELECT Singer_ID FROM song)",
+    "question": "What is the sname of every sing that does not have any song?"
+  },
+  {
+    "type": 2,
+    "db_id": "singer",
+    "query": "SELECT Citizenship FROM singer WHERE Birth_Year  <=  1945",
+    "question": "Show the citizenship shared by singers with birth year before or in 1945."
+  },
+  {
+    "type": 2,
+    "db_id": "singer",
+    "query": "SELECT Citizenship FROM singer WHERE Birth_Year  <=  1945",
+    "question": "What are the citizenships that are shared by singers with a birth year before or in 1945?"
+  }
+]
